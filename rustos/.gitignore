@@ -1,0 +1,8 @@
+target/
+build/
+*.iso
+*.zip
+*.log
+*.vdi
+*.vbox*
+.DS_Store

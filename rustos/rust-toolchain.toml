@@ -1,0 +1,4 @@
+# Pinned nightly toolchain: nightly (rustc 1.101.0-nightly 92ffebece 2026-10-28)
+[toolchain]
+channel = "nightly"
+components = ["rust-src", "llvm-tools-preview"]

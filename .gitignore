@@ -1,0 +1,27 @@
+# Operating Systems Project .gitignore
+# Exclude heavy OS images and virtual disk formats (>100MB)
+*.iso
+*.bin
+*.vdi
+*.vmdk
+*.qcow2
+*.log
+*.webm
+*.sav
+*.tar.gz
+*.squashfs
+
+# Build directories and binaries
+target/
+build/
+**/target/
+**/build/
+
+# Rust compilation artifacts
+.cargo-lock
+CACHEDIR.TAG
+
+# Windows / macOS system files
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,13 @@
+[package]
+name = "rustos"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rustos_core = { path = "crates/rustos_core", default-features = false }
+
+[workspace]
+members = [
+    ".",
+    "crates/rustos_core",
+]
