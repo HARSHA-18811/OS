@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Operating Systems Project & Research Report - Harsha Yalagani</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+    @bottom-right {
+      content: counter(page);
+      font-size: 9pt;
+      color: #718096;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a202c;
+    line-height: 1.6;
+    font-size: 10.5pt;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  /* Cover Banner */
+  .header-card {
+    border-left: 6px solid #2b6cb0;
+    background: linear-gradient(135deg, #ebf8ff 0%, #f7fafc 100%);
+    padding: 24px 28px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  .header-card h1 {
+    margin: 0 0 6px 0;
+    font-size: 20pt;
+    color: #2b6cb0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .header-card h2 {
+    margin: 0 0 15px 0;
+    font-size: 12.5pt;
+    color: #4a5568;
+    font-weight: 500;
+  }
+
+  .metadata-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+    font-size: 9.5pt;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .meta-item strong {
+    color: #2d3748;
+    display: block;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    font-size: 8pt;
+    letter-spacing: 0.5px;
+  }
+
+  .meta-item a {
+    color: #3182ce;
+    text-decoration: none;
+    word-break: break-all;
+    font-weight: 500;
+  }
+
+  .meta-item a:hover {
+    text-decoration: underline;
+  }
+
+  h2.section-title {
+    color: #2b6cb0;
+    font-size: 14pt;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-top: 30px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    color: #2d3748;
+    font-size: 11.5pt;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  h4 {
+    color: #4a5568;
+    font-size: 10.5pt;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin: 0 0 12px 0;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px 0;
+    font-size: 9pt;
+  }
+
+  th, td {
+    padding: 7px 10px;
+    border: 1px solid #cbd5e0;
+    text-align: left;
+  }
+
+  th {
+    background-color: #edf2f7;
+    color: #2d3748;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f7fafc;
+  }
+
+  /* Code blocks */
+  pre {
+    background-color: #2d3748;
+    color: #f7fafc;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 8.5pt;
+    overflow-x: auto;
+    margin: 10px 0 14px 0;
+    line-height: 1.45;
+  }
+
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    background-color: #edf2f7;
+    color: #c53030;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 9pt;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  /* Alert boxes */
+  .alert {
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 9.5pt;
+  }
+
+  .alert-warning {
+    background-color: #fffaf0;
+    border-left: 4px solid #dd6b20;
+    color: #7b341e;
+  }
+
+  .alert-critical {
+    background-color: #fff5f5;
+    border-left: 4px solid #e53e3e;
+    color: #9b2c2c;
+  }
+
+  .alert-tip {
+    background-color: #f0fff4;
+    border-left: 4px solid #38a169;
+    color: #22543d;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 8pt;
+    font-weight: 600;
+    background-color: #edf2f7;
+    color: #4a5568;
+    margin-right: 4px;
+  }
+  .badge-blue { background-color: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; }
+  .badge-green { background-color: #f0fff4; color: #276749; border: 1px solid #c6f6d5; }
+  .badge-orange { background-color: #fffaf0; color: #c05621; border: 1px solid #feebc8; }
+</style>
+</head>
+<body>
+
+  <!-- COVER / HEADER SECTION -->
+  <div class="header-card">
+    <h1>OPERATING SYSTEMS PROJECT & RESEARCH REPORT</h1>
+    <h2>Debian MicroOS Live GUI, Bare-Metal RustOS Kernel & Concurrency Research Lab</h2>
+    <div style="font-size: 9.5pt; color: #4a5568; margin-bottom: 8px;">
+      <strong>Author:</strong> Harsha Yalagani &nbsp;|&nbsp; <strong>Curriculum:</strong> 3rd Semester B.Tech / B.E. (Operating Systems)
+    </div>
+
+    <div class="metadata-grid">
+      <div class="meta-item">
+        <strong>GitHub Repository (Primary)</strong>
+        <a href="https://github.com/HARSHA-18811/OS">https://github.com/HARSHA-18811/OS</a>
+      </div>
+      <div class="meta-item">
+        <strong>Google Drive ISO Download</strong>
+        <a href="https://drive.google.com/file/d/12ML_ZVn8thM8TBMi7EPKr-XWNeuxVwT9/view?usp=sharing">Click to Download micro-os.iso (Google Drive)</a>
+      </div>
+      <div class="meta-item">
+        <strong>GitHub Mirror</strong>
+        <a href="https://github.com/harshayalagani29/OS">https://github.com/harshayalagani29/OS</a>
+      </div>
+      <div class="meta-item">
+        <strong>Artifact Images Generated</strong>
+        <span class="badge badge-blue">micro-os.iso (~420 MB)</span>
+        <span class="badge badge-orange">rustos.iso (~15 MB)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EXECUTIVE SUMMARY -->
+  <h2 class="section-title">1. Executive Summary & Architecture Overview</h2>
+  <p>
+    This project presents a dual-tier Operating Systems engineering architecture developed for the 3rd Semester Operating Systems course. The project bridges the fundamental gap between low-level bare-metal hardware abstraction and full-scale modern Linux distribution engineering:
+  </p>
+  <ul>
+    <li>
+      <strong>Tier 1 — Debian MicroOS:</strong> An ultra-lightweight (&lt;450 MB) bootable Live Linux hybrid ISO based on Debian 12 Bookworm. It boots in under 15 seconds directly into an automated graphical desktop environment customized to mirror Windows 11 ergonomics (bottom taskbar, Whisker Start menu, system monitor, file manager, and browser). It features non-root passwordless autologin, an integrated retro arcade Snake game, and an academic Producer-Consumer Concurrency Research Laboratory.
+    </li>
+    <li>
+      <strong>Tier 2 — RustOS:</strong> A 32-bit x86 bare-metal operating system kernel written in 100% freestanding Rust (<code>#![no_std]</code>, <code>#![no_main]</code>). It implements low-level protected mode hardware initialization, Global Descriptor Table (GDT), 256-entry Interrupt Descriptor Table (IDT), 8259 Dual PIC remap, PIT timer scheduling, direct memory-mapped VGA text buffer driver (<code>0xb8000</code>), PS/2 keyboard controller, and an interactive kernel shell with arcade mini-games.
+    </li>
+  </ul>
+
+  <!-- SECTION 2: HOW THE OS WAS IMPLEMENTED -->
+  <h2 class="section-title">2. Steps on How the Operating System Was Implemented</h2>
+
+  <h3>2.1 Implementing the Bare-Metal Kernel (RustOS)</h3>
+  <p>
+    RustOS executes directly on x86 hardware without any existing operating system or C runtime library. The implementation follows standard systems programming methodologies:
+  </p>
+  <ol>
+    <li>
+      <strong>Freestanding Compilation & Linker Script:</strong> The kernel is compiled targeting <code>i686-unknown-none</code> via custom specification <code>i686-rustos.json</code> with red-zone and SSE disabled. The linker script (<code>linker.ld</code>) aligns sections on 4 KB page boundaries and embeds a Multiboot header at 1 MB (<code>0x100000</code>), transferring control to the kernel entry point <code>_start</code>.
+    </li>
+    <li>
+      <strong>Global Descriptor Table (GDT):</strong> Implemented in <code>rustos/src/gdt.rs</code>, establishing flat protected-mode segments for Kernel Code (index 1, execute/read) and Kernel Data (index 2, read/write) with base <code>0x00000000</code> and limit <code>0xFFFFFFFF</code>.
+    </li>
+    <li>
+      <strong>Interrupt Descriptor Table (IDT) & CPU Exceptions:</strong> In <code>rustos/src/idt.rs</code>, a 256-entry gate array is registered using the <code>lidt</code> instruction. It captures hardware faults including Division Error (0), Invalid Opcode (6), Double Fault (8), General Protection Fault (13), and Page Fault (14), extracting the CR2 faulting address and formatting register state dumps.
+    </li>
+    <li>
+      <strong>Dual 8259 PIC Remap & PIT Timer:</strong> In <code>rustos/src/pic.rs</code>, hardware IRQs are remapped from the default vectors <code>0x08-0x0F</code> (which collide with Intel CPU exceptions) to <code>0x20-0x2F</code>. In <code>rustos/src/pit.rs</code>, Channel 0 of the 8253/8254 timer chip is set to square-wave generator mode, producing millisecond-accurate scheduling ticks for kernel multitasking.
+    </li>
+    <li>
+      <strong>VGA Text Driver & Synchronization:</strong> In <code>rustos/src/vga.rs</code>, characters are written directly into physical video memory at <code>0xb8000</code> (80 columns &times; 25 rows). Each cell stores an ASCII character and a 1-byte color attribute. Protected by a spinlock mutex with automatic scrolling and formatted <code>print!</code>/<code>println!</code> macros.
+    </li>
+    <li>
+      <strong>PS/2 Keyboard Driver & Interactive Shell:</strong> In <code>rustos/src/keyboard.rs</code>, IRQ1 decodes Scan Code Set 1 from I/O port <code>0x60</code> into ASCII keystrokes. In <code>rustos/src/shell.rs</code>, an interactive prompt evaluates commands: <code>help</code>, <code>info</code>, <code>ticks</code>, <code>clear</code>, and bare-metal games (Snake, Car Dodge).
+    </li>
+  </ol>
+
+  <h3>2.2 Implementing Debian MicroOS (Live Graphical Desktop System)</h3>
+  <ol>
+    <li>
+      <strong>Base System Bootstrap:</strong> Minimal Debian 12 Bookworm bootstrap using <code>debootstrap --variant=minbase</code>, selecting <code>linux-image-amd64</code>, <code>live-boot</code>, and <code>systemd-sysv</code>.
+    </li>
+    <li>
+      <strong>Windows-Style GUI Architecture:</strong> Built with Xorg, LightDM, and XFCE4. The taskbar is anchored to the bottom screen edge (<code>position=p=12</code>) featuring the Whisker Application Menu (Start Menu), pinned taskbar buttons (Terminal, File Manager, Browser, Task Manager), and system tray clock.
+    </li>
+    <li>
+      <strong>Automated Non-Root Autologin:</strong> LightDM configured in <code>/etc/lightdm/lightdm.conf</code> with <code>autologin-user=user</code> and <code>user-session=xfce</code>. User <code>user</code> is pre-seeded with passwordless sudo permissions.
+    </li>
+    <li>
+      <strong>Retro Arcade Snake Game Integration:</strong> Integrated <code>nsnake</code> with system symlinks <code>/usr/bin/snake</code> and a dedicated desktop launcher <code>/home/user/Desktop/snake.desktop</code> launching <code>xfce4-terminal -e "/usr/games/nsnake"</code>.
+    </li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <!-- SECTION 3: HOW THE ISO WAS CREATED -->
+  <h2 class="section-title">3. Steps on How the ISO File Was Created from Source Code</h2>
+  <p>
+    Forming a production-grade, bootable hybrid ISO requires strict filesystem hierarchy preservation, static device node management, and bootloader integration.
+  </p>
+
+  <h3>3.1 Debian MicroOS Headless Build Pipeline (<code>build_clean.sh</code>)</h3>
+  <ol>
+    <li>
+      <strong>Clean & Safe Mount Management:</strong> Unmounts existing virtual filesystems (<code>dev/pts</code>, <code>dev</code>, <code>proc</code>, <code>sys</code>, <code>run</code>) lazily to prevent host lockups, then initializes clean staging directories (<code>chroot/</code>, <code>iso/live/</code>, <code>iso/isolinux/</code>).
+    </li>
+    <li>
+      <strong>System Bootstrap:</strong> Runs <code>debootstrap --variant=minbase --arch=amd64 bookworm chroot</code>.
+    </li>
+    <li>
+      <strong>Chroot Customization:</strong> Mounts host virtual filesystems into chroot, installs the Linux 6.1 kernel, XFCE4 desktop, LightDM, snake game, creates user accounts, and builds desktop shortcuts.
+    </li>
+    <li>
+      <strong>Kernel & Initramfs Staging:</strong> Extracts <code>vmlinuz</code> and <code>initrd.img</code> from <code>chroot/boot/</code> to <code>iso/live/</code>.
+    </li>
+    <li>
+      <strong>Static Device Node Injection (Crucial):</strong> Before unmounting, static device nodes are created:
+      <pre><code>mknod -m 600 chroot/dev/console c 5 1
+mknod -m 666 chroot/dev/null c 1 3</code></pre>
+    </li>
+    <li>
+      <strong>Filesystem Cleanup & Mount Point Retention:</strong> Unmounts chroot filesystems, then verifies that placeholder mount directories (<code>/proc</code>, <code>/sys</code>, <code>/dev</code>, <code>/run</code>, <code>/tmp</code>) exist with correct permissions.
+    </li>
+    <li>
+      <strong>SquashFS Compression:</strong> Compresses the rootfs using high-efficiency XZ compression, excluding only the boot directory:
+      <pre><code>mksquashfs chroot iso/live/filesystem.squashfs -comp xz -e boot</code></pre>
+    </li>
+    <li>
+      <strong>ISOLINUX & Hybrid MBR Authoring:</strong> Authors <code>isolinux.cfg</code> and uses <code>xorriso</code> with <code>-isohybrid-mbr</code> to produce a dual-mode hybrid ISO bootable on both optical media and USB flash drives:
+      <pre><code>xorriso -as mkisofs -r -V "MicroOS" -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat \
+  -no-emul-boot -boot-load-size 4 -boot-info-table \
+  -isohybrid-mbr /usr/lib/ISOLINUX/isohdpfx.bin \
+  -o build/micro-os.iso iso</code></pre>
+    </li>
+  </ol>
+
+  <!-- CRITICAL BUG FIX HIGHLIGHTS -->
+  <div class="alert alert-warning">
+    <strong>CRITICAL FIX #1 (Mount Directory Preservation):</strong> Running <code>mksquashfs</code> with <code>-e boot proc sys run tmp</code> completely stripped the physical mount point directories. At boot, <code>live-boot</code> failed with <code>mount: /root/run: mount point does not exist</code>. <em>Solution:</em> Only exclude <code>boot</code> (<code>-e boot</code>) and ensure clean placeholder directories exist.
+  </div>
+
+  <div class="alert alert-critical">
+    <strong>CRITICAL FIX #2 (Kernel Panic on Init):</strong> Missing <code>/dev/console</code> and <code>/dev/null</code> caused systemd to abort before devtmpfs was mounted, triggering <code>Kernel panic: Attempted to kill init! exitcode=0x00000100</code>. <em>Solution:</em> Pre-create static device nodes with <code>mknod</code> prior to compression.
+  </div>
+
+  <h3>3.2 RustOS Bare-Metal ISO Creation Pipeline</h3>
+  <ol>
+    <li>The kernel binary is compiled: <code>cargo build --target i686-rustos.json</code>.</li>
+    <li>The binary is placed in an ISO root structure: <code>iso/boot/kernel.elf</code>.</li>
+    <li>A GRUB 2 configuration is written to <code>iso/boot/grub/grub.cfg</code>:
+      <pre><code>set timeout=3
+set default=0
+menuentry "RustOS" {
+    multiboot /boot/kernel.elf
+    boot
+}</code></pre>
+    </li>
+    <li><code>grub-mkrescue -o rustos/iso/rustos.iso rustos/iso</code> bundles GRUB stages and the Multiboot ELF kernel into a bootable 15 MB ISO.</li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <!-- SECTION 4: RESEARCH PAPER & CONCURRENCY LAB -->
+  <h2 class="section-title">4. Concurrency Research Paper Analysis & Experimental Lab (<code>pclab</code>)</h2>
+  
+  <h3>4.1 Research Overview & Mathematical Model</h3>
+  <p>
+    The research lab investigates synchronization overhead, thread contention, and buffer capacity trade-offs in the classic <strong>Producer-Consumer Multi-Core Synchronization Model</strong>.
+  </p>
+  <p>
+    Under <strong>Little's Law</strong> for queueing networks:
+    <br>
+    $$\mathbf{L = \lambda_{eff} \cdot W}$$
+    <br>
+    Where $L$ is the average items in the buffer, $\lambda_{eff}$ is effective departure rate, and $W$ is the mean waiting time per item in the buffer.
+  </p>
+  <p>
+    The lab compares standard mutual exclusion with condition variables (<code>std::sync::Mutex</code>, <code>std::sync::Condvar</code>) against lock-free queues across 24 experimental configurations.
+  </p>
+
+  <h3>4.2 Empirical Benchmark Results (24 Test Matrix)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Exp #</th>
+        <th>Buffer ($B$)</th>
+        <th>Producers ($P$)</th>
+        <th>Consumers ($C$)</th>
+        <th>Items</th>
+        <th>Time</th>
+        <th>Throughput (ops/sec)</th>
+        <th>Contention Classification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Exp 01</strong></td><td>1</td><td>1</td><td>1</td><td>100k</td><td>148 ms</td><td>675,675</td><td>High (Rendezvous)</td></tr>
+      <tr><td><strong>Exp 02</strong></td><td>8</td><td>1</td><td>1</td><td>100k</td><td>82 ms</td><td>1,219,512</td><td>Moderate</td></tr>
+      <tr><td><strong>Exp 03</strong></td><td>64</td><td>1</td><td>1</td><td>100k</td><td>54 ms</td><td>1,851,851</td><td>Optimal Single-Pair</td></tr>
+      <tr><td><strong>Exp 04</strong></td><td>512</td><td>1</td><td>1</td><td>100k</td><td>53 ms</td><td>1,886,792</td><td>Plateau</td></tr>
+      <tr><td><strong>Exp 05</strong></td><td>1</td><td>2</td><td>2</td><td>200k</td><td>385 ms</td><td>519,480</td><td>Severe Contention</td></tr>
+      <tr><td><strong>Exp 06</strong></td><td>8</td><td>2</td><td>2</td><td>200k</td><td>165 ms</td><td>1,212,121</td><td>Moderate</td></tr>
+      <tr><td><strong>Exp 07</strong></td><td>64</td><td>2</td><td>2</td><td>200k</td><td>89 ms</td><td>2,247,191</td><td>Near Optimal</td></tr>
+      <tr><td><strong>Exp 08</strong></td><td>512</td><td>2</td><td>2</td><td>200k</td><td>84 ms</td><td><strong>2,380,952</strong></td><td><strong>Maximum Peak Throughput</strong></td></tr>
+      <tr><td><strong>Exp 09</strong></td><td>1</td><td>4</td><td>4</td><td>400k</td><td>980 ms</td><td>408,163</td><td>Severe Lock Bouncing</td></tr>
+      <tr><td><strong>Exp 10</strong></td><td>8</td><td>4</td><td>4</td><td>400k</td><td>340 ms</td><td>1,176,470</td><td>Moderate</td></tr>
+      <tr><td><strong>Exp 11</strong></td><td>64</td><td>4</td><td>4</td><td>400k</td><td>178 ms</td><td>2,247,191</td><td>Optimal Multi-Core</td></tr>
+      <tr><td><strong>Exp 12</strong></td><td>512</td><td>4</td><td>4</td><td>400k</td><td>172 ms</td><td>2,325,581</td><td>Plateau</td></tr>
+      <tr><td><strong>Exp 13</strong></td><td>1</td><td>4</td><td>1</td><td>200k</td><td>610 ms</td><td>327,868</td><td>Consumer Starvation</td></tr>
+      <tr><td><strong>Exp 14</strong></td><td>8</td><td>4</td><td>1</td><td>200k</td><td>255 ms</td><td>784,313</td><td>Consumer Bottleneck</td></tr>
+      <tr><td><strong>Exp 15</strong></td><td>64</td><td>4</td><td>1</td><td>200k</td><td>230 ms</td><td>869,565</td><td>Consumer Bound</td></tr>
+      <tr><td><strong>Exp 16</strong></td><td>512</td><td>4</td><td>1</td><td>200k</td><td>225 ms</td><td>888,888</td><td>Consumer Bound</td></tr>
+      <tr><td><strong>Exp 17</strong></td><td>1</td><td>1</td><td>4</td><td>200k</td><td>590 ms</td><td>338,983</td><td>Producer Starvation</td></tr>
+      <tr><td><strong>Exp 18</strong></td><td>8</td><td>1</td><td>4</td><td>200k</td><td>260 ms</td><td>769,230</td><td>Producer Bottleneck</td></tr>
+      <tr><td><strong>Exp 19</strong></td><td>64</td><td>1</td><td>4</td><td>200k</td><td>235 ms</td><td>851,063</td><td>Producer Bound</td></tr>
+      <tr><td><strong>Exp 20</strong></td><td>512</td><td>1</td><td>4</td><td>200k</td><td>228 ms</td><td>877,192</td><td>Producer Bound</td></tr>
+      <tr><td><strong>Exp 21</strong></td><td>1</td><td>8</td><td>8</td><td>800k</td><td>2,420 ms</td><td>330,578</td><td>Extreme Cache Ping-Pong</td></tr>
+      <tr><td><strong>Exp 22</strong></td><td>8</td><td>8</td><td>8</td><td>800k</td><td>790 ms</td><td>1,012,658</td><td>Mutex Serialization</td></tr>
+      <tr><td><strong>Exp 23</strong></td><td>64</td><td>8</td><td>8</td><td>800k</td><td>410 ms</td><td>1,951,219</td><td>Lock Contention Limit</td></tr>
+      <tr><td><strong>Exp 24</strong></td><td>512</td><td>8</td><td>8</td><td>800k</td><td>390 ms</td><td>2,051,282</td><td>Lock Contention Limit</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 Academic Hypotheses & Conclusions</h3>
+  <ul>
+    <li>
+      <strong>Hypothesis 1 (Buffer Size Sweet Spot):</strong> Increasing buffer capacity from $B = 1$ to $B = 64$ delivers an exponential <strong>274% to 450%</strong> throughput improvement. Beyond $B = 64$, diminishing returns occur (only 1.9% gain between 64 and 512). The sweet spot represents matching cache line granularity.
+    </li>
+    <li>
+      <strong>Hypothesis 2 (Asymmetric Workloads):</strong> In skewed thread setups ($4P \times 1C$ or $1P \times 4C$), throughput is strictly capped at ~888k ops/sec because the lone thread is 100% CPU saturated regardless of buffer expansion.
+    </li>
+    <li>
+      <strong>Hypothesis 3 (Lock Contention Ceiling):</strong> Increasing threads to $8P \times 8C$ results in a <strong>14% performance degradation</strong> compared to $4P \times 4C$ (dropping from 2.38M to 2.05M ops/sec). Under high thread counts, mutex cache-line invalidations (MESI protocol bouncing) dominate CPU cycles.
+    </li>
+  </ul>
+
+  <!-- SECTION 5: DEPLOYMENT & VIVA GUIDE -->
+  <h2 class="section-title">5. Deployment, Virtualization & Faculty Defense Guide</h2>
+
+  <h3>5.1 1-Click Windows Launcher (<code>Start-MicroOS.bat</code>)</h3>
+  <p>
+    An automated batch script at the repository root auto-detects VirtualBox, registers the VM with 2048 MB RAM, 2 vCPUs, and 128 MB VRAM, attaches <code>micro-os.iso</code>, and launches the VM into full-screen mode with one double-click.
+  </p>
+
+  <h3>5.2 Display Resolution & Fullscreen</h3>
+  <div class="alert alert-tip">
+    <strong>Instant Full-Screen Display:</strong> Press <code>Right Ctrl + C</code> to toggle <strong>Scale Mode</strong>, stretching the desktop to 100% of your monitor without black borders. Press <code>Right Ctrl + F</code> to enter borderless full-screen mode.
+  </div>
+
+  <h3>5.3 Faculty Viva Cheat Sheet</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Expected Faculty Question</th>
+        <th>Technical Answer</th>
+        <th>Source Code File</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>"Where is the kernel entry point?"</strong></td>
+        <td><code>_start</code> in <code>rustos/src/main.rs</code>, executing in 32-bit protected mode without libc.</td>
+        <td><code>rustos/src/main.rs</code></td>
+      </tr>
+      <tr>
+        <td><strong>"How are PIC interrupt conflicts avoided?"</strong></td>
+        <td>Remapped Master/Slave PIC vectors from 0x08-0x0F to 0x20-0x2F to prevent collisions with CPU exceptions.</td>
+        <td><code>rustos/src/pic.rs</code></td>
+      </tr>
+      <tr>
+        <td><strong>"How does the VGA driver output text?"</strong></td>
+        <td>Directly writes ASCII and color attribute bytes to physical memory <code>0xb8000</code>.</td>
+        <td><code>rustos/src/vga.rs</code></td>
+      </tr>
+      <tr>
+        <td><strong>"How was the live Linux ISO generated?"</strong></td>
+        <td>Debootstrap minbase, static device nodes, LightDM autologin, XFCE4 Windows GUI, and SquashFS XZ compression.</td>
+        <td><code>micro-os/build_clean.sh</code></td>
+      </tr>
+      <tr>
+        <td><strong>"What was your research conclusion in concurrency?"</strong></td>
+        <td>Buffer size 64 is the optimal balance point. At 16 threads, mutex lock bouncing causes a 14% throughput drop.</td>
+        <td><code>micro-os/docs/RESEARCH_PAPER_ANALYSIS.md</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 30px; text-align: center; font-size: 8.5pt; color: #a0aec0;">
+    &mdash; End of Official Operating Systems Project & Research Report &mdash;
+  </p>
+
+</body>
+</html>
