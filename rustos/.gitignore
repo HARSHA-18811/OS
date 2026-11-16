@@ -1,6 +1,7 @@
 target/
 build/
 *.iso
+!iso/rustos.iso
 *.zip
 *.log
 *.vdi

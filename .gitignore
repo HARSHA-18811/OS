@@ -1,6 +1,7 @@
 # Operating Systems Project .gitignore
 # Exclude heavy OS images and virtual disk formats (>100MB)
 *.iso
+!rustos/iso/rustos.iso
 *.bin
 *.vdi
 *.vmdk
