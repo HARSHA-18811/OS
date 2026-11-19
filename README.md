@@ -8,17 +8,21 @@
 
 ---
 
-## 1. Portfolio Navigation & Assessment Components
+## 1. Portfolio Navigation & Online Document Viewers
 
-| Directory / File | Assessment Component | Description & Scope |
-|:---|:---:|:---|
-| [📁 **`Micro_OS_Submission/`**](./Micro_OS_Submission) | **CA-6 Project Submission** | Dual-tier Operating System: Minimal bootable Debian MicroOS Live GUI (Windows 11 UI, authentic Wi-Fi management with password authentication, Snake arcade, system monitor) and 32-bit Bare-Metal RustOS Kernel. |
-| [📄 **`CA2.docx`**](./CA2.docx) | **CA-2 Investigation** | *How Buffer Size, Thread Ratios, and the Linear Scaling Fallacy Influence Producer–Consumer Performance* (Rust prototype). |
-| [📄 **`CA3.docx`**](./CA3.docx) | **CA-3 Debugging Challenge** | *An Empirical Investigation into Bounded Producer–Consumer Synchronization: Diagnosing Concurrency Defects and Analyzing Buffer Scaling*. |
-| [📄 **`CA5.docx`**](./CA5.docx) | **CA-5 Systems Engineering** | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
-| [📄 **`25BTRCL289_Harsha_Vardhan_Research.docx`**](./25BTRCL289_Harsha_Vardhan_Research.docx) | **Research Proposal** | Problem Identification, Literature Discovery, and Formal Research Formulation. |
-| [📄 **`Operating_Systems_Lab_Assignment_Harsha.docx`**](./Operating_Systems_Lab_Assignment_Harsha.docx) | **Lab Record Portfolio** | Laboratory Record: Comprehensive Linux system programming, concurrency models, and architecture simulations. |
-| [📄 **`Operating_Systems_Project_Report.docx`**](./Operating_Systems_Project_Report.docx) | **Project Report** | Academic Project Report covering Debian MicroOS Live GUI, Bare-Metal RustOS Kernel, and Concurrency Lab (also available as [PDF inside `Micro_OS_Submission/`](./Micro_OS_Submission/Operating_Systems_Project_Report.pdf)). |
+> [!TIP]
+> **Read Online Directly in Your Browser (No Download Required):**  
+> GitHub automatically renders **PDF** and **Markdown** documents directly in the web browser. Click any **[View Online (PDF)]** or **[View Online (Markdown)]** link below to read the complete submission online immediately.
+
+| Component | Read Online (PDF) | Read Online (Markdown) | Word Online (.docx) | Download (.docx) | Description |
+|:---|:---:|:---:|:---:|:---:|:---|
+| **📁 CA-6 MicroOS Submission** | — | [**Open Folder**](./Micro_OS_Submission) | — | — | Debian MicroOS Live GUI (Windows 11 theme, authentic Wi-Fi flyout with password validation, arcade) + Bare-Metal RustOS Kernel. |
+| **CA-2 Investigation** | [📖 **View Online (PDF)**](./CA2.pdf) | [📝 **View Online (MD)**](./CA2.md) | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/CA2.docx) | [💾 `CA2.docx`](./CA2.docx) | *How Buffer Size, Thread Ratios, and the Linear Scaling Fallacy Influence Producer–Consumer Performance* (Rust prototype, 24 configurations). |
+| **CA-3 Debugging Challenge** | [📖 **View Online (PDF)**](./CA3.pdf) | [📝 **View Online (MD)**](./CA3.md) | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/CA3.docx) | [💾 `CA3.docx`](./CA3.docx) | *OS Design & Debugging Challenge: Bounded Producer–Consumer Synchronization, Concurrency Defect Diagnosis & Buffer Scaling*. |
+| **CA-5 Systems Engineering** | [📖 **View Online (PDF)**](./CA5.pdf) | [📝 **View Online (MD)**](./CA5.md) | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/CA5.docx) | [💾 `CA5.docx`](./CA5.docx) | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
+| **Research Paper Proposal** | [📖 **View Online (PDF)**](./25BTRCL289_Harsha_Vardhan_Research.pdf) | — | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/25BTRCL289_Harsha_Vardhan_Research.docx) | [💾 `Research.docx`](./25BTRCL289_Harsha_Vardhan_Research.docx) | Problem Identification, Literature Discovery, and Formal Research Formulation. |
+| **Lab Record Portfolio** | [📖 **View Online (PDF)**](./Operating_Systems_Lab_Assignment_Harsha.pdf) | — | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/Operating_Systems_Lab_Assignment_Harsha.docx) | [💾 `Lab_Record.docx`](./Operating_Systems_Lab_Assignment_Harsha.docx) | Complete Laboratory Record: Linux system programming, concurrency models, and architecture simulations. |
+| **OS Project Report** | [📖 **View Online (PDF)**](./Operating_Systems_Project_Report.pdf) | [📝 `REPORT.md`](./Micro_OS_Submission/REPORT.md) | [🌐 **Word Online**](https://view.officeapps.live.com/op/view.aspx?src=https://raw.githubusercontent.com/HARSHA-18811/OS/main/Operating_Systems_Project_Report.docx) | [💾 `Report.docx`](./Operating_Systems_Project_Report.docx) | Academic Project Report covering Debian MicroOS Live GUI, Bare-Metal RustOS Kernel, and Concurrency Lab. |
 
 ---
 
