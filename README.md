@@ -1,147 +1,65 @@
-# Operating Systems Semester Project: Debian MicroOS & RustOS
+# Submissions for OS CA2, CA3, CA5 & CA6
 
-[![OS](https://img.shields.io/badge/OS-Debian%2012%20Bookworm-red.svg)](https://www.debian.org/)
-[![Kernel](https://img.shields.io/badge/Kernel-Linux%206.1%20%7C%20Rust%20Bare--Metal-orange.svg)](https://www.rust-lang.org/)
-[![Architecture](https://img.shields.io/badge/Architecture-x86__64%20%7C%20i686-blue.svg)]()
-[![Virtualization](https://img.shields.io/badge/Platform-VirtualBox%20%7C%20QEMU-green.svg)]()
-
-A comprehensive Operating Systems engineering project combining two complementary systems:
-1. **Debian MicroOS**: A production-grade, ultra-lightweight bootable Linux distribution featuring a modern Windows-style graphical desktop, producer-consumer concurrency research laboratory, and retro arcade applications.
-2. **RustOS**: A custom 32-bit bare-metal operating system kernel implemented in Rust, demonstrating low-level hardware abstraction, interrupt handling (IDT), timer-based multitasking, and direct VGA buffer manipulation.
+**Course:** 25PCCS201 – Operating Systems Concepts (3rd Semester B.Tech)  
+**Author:** Yalagani Harsha Vardhan  
+**USN:** 25BTRCL289  
+**Section:** CSE AIML-E  
+**Department:** Computer Science & Engineering (AIML), School of Engineering & Technology  
 
 ---
 
-## 📸 Desktop Showcase & Verification
+## 1. Portfolio Navigation & Assessment Components
 
-### 1. Windows-Style Desktop Environment & Tools
-The operating system boots directly into an automated graphical session with a familiar Windows-style layout—featuring a bottom taskbar, start menu, system monitor, quick terminal, and desktop shortcuts.
-
-![Debian MicroOS Windows Desktop](docs/screenshots/win_gui_final.png)
-
-### 2. Retro Arcade Snake Game Integration
-Integrated arcade Snake game (`nsnake`) accessible directly via desktop launcher and terminal CLI (`snake`), featuring full score tracking, customizable speed, and responsive keyboard controls.
-
-![Snake Game Desktop Shortcut](docs/screenshots/snake_desktop_verified.png)
-
----
-
-## 🌟 Key Features
-
-### 🖥️ Debian MicroOS (Live GUI System)
-- **Ultra-Fast Live Boot**: Cold boots to full graphical desktop in under 15 seconds.
-- **Compact Footprint**: Minimalist ~420 MB hybrid ISO utilizing LZ4/XZ-compressed SquashFS.
-- **Windows-Style Ergonomics**:
-  - Bottom panel with Whisker Application Menu (Start Menu).
-  - Pinned taskbar buttons for Terminal, File Manager, Browser, and Task Manager.
-  - Status tray displaying clock, battery, volume, and workspace switcher.
-  - Pre-configured user environment with non-root security (`user` / passwordless sudo).
-- **Concurrency Research Lab (`pclab`)**:
-  - High-performance Rust-based benchmark suite analyzing Producer-Consumer concurrency models.
-  - Tests mutex locks, lock-free ring buffers, and crossbeam channels under high thread contention.
-- **Retro Arcade Game**:
-  - Fully integrated terminal Snake game with dedicated `.desktop` launcher and system-wide `/usr/bin/snake` command.
-
-### 🦀 RustOS (Bare-Metal Kernel)
-- **100% Freestanding Rust (`no_std`)**: Zero external C runtime dependency.
-- **x86 CPU Architecture**:
-  - Protected mode execution with custom Global Descriptor Table (GDT).
-  - Interrupt Descriptor Table (IDT) handling hardware interrupts and CPU exceptions.
-  - Dual 8259 Programmable Interrupt Controllers (PIC) remap.
-- **Hardware Drivers**:
-  - Programmable Interval Timer (PIT) providing millisecond-accurate scheduling ticks.
-  - Color VGA text-mode driver (80x25) with scrolling and ANSI-like color formatting.
-  - PS/2 Keyboard controller with scan-code decoding and interactive shell.
-- **Interactive Shell & Kernel Games**:
-  - In-kernel text games and system diagnostics built directly into the kernel binary.
+| Directory / File | Assessment Component | Description & Scope |
+|:---|:---:|:---|
+| [📁 **`Micro_OS_Submission/`**](./Micro_OS_Submission) | **CA-6 Project Submission** | Dual-tier Operating System: Minimal bootable Debian MicroOS Live GUI (Windows 11 UI, authentic Wi-Fi management with password authentication, Snake arcade, system monitor) and 32-bit Bare-Metal RustOS Kernel. |
+| [📄 **`FINAL__CA2_Producer_Consumer_Performance_Investigation.docx`**](./FINAL__CA2_Producer_Consumer_Performance_Investigation.docx) | **CA-2 Investigation** | *How Buffer Size, Thread Ratios, and the Linear Scaling Fallacy Influence Producer–Consumer Performance* (Rust prototype). |
+| [📄 **`FINAL__CA3_OS_Research_Paper_Producer_Consumer_Performance.docx`**](./FINAL__CA3_OS_Research_Paper_Producer_Consumer_Performance.docx) | **CA-3 Debugging Challenge** | *An Empirical Investigation into Bounded Producer–Consumer Synchronization: Diagnosing Concurrency Defects and Analyzing Buffer Scaling*. |
+| [📄 **`final_CA5_Producer_Consumer_Linux_Systems_Engineering_Final.docx`**](./final_CA5_Producer_Consumer_Linux_Systems_Engineering_Final.docx) | **CA-5 Systems Engineering** | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
+| [📄 **`25BTRCL289_Harsha_Vardhan_Research.docx`**](./25BTRCL289_Harsha_Vardhan_Research.docx) | **Research Proposal** | Problem Identification, Literature Discovery, and Formal Research Formulation. |
+| [📄 **`Operating_Systems_Lab_Assignment_Harsha.docx`**](./Operating_Systems_Lab_Assignment_Harsha.docx) | **Lab Record Portfolio** | Laboratory Record: Comprehensive Linux system programming, concurrency models, and architecture simulations. |
+| [📄 **`Operating_Systems_Project_Report.pdf`**](./Operating_Systems_Project_Report.pdf) | **Academic Project Report** | Published-style 4-page formal project and research report covering system architecture, kernel implementation, and experimental benchmarks. |
 
 ---
 
-## 📂 Repository Structure
+## 2. MicroOS & RustOS Architecture Overview (CA-6)
 
-```
-.
-├── Start-MicroOS.bat               # 1-Click Windows launcher for VirtualBox
-├── docs/                           # Documentation and visual proof
-│   └── screenshots/
-│       ├── win_gui_final.png       # Windows-style desktop preview
-│       └── snake_desktop_verified.png # Verified Snake game desktop shortcut
-├── micro-os/                       # Debian MicroOS source, scripts, and research
-│   ├── build_clean.sh              # Headless ISO builder script (Debian/WSL)
-│   ├── build.ps1                   # PowerShell build automation
-│   ├── run.ps1                     # QEMU / VirtualBox runner script
-│   ├── Start-MicroOS.bat           # Standalone launcher batch script
-│   ├── docs/                       # Research documentation
-│   │   ├── BOOT_TIMES.md           # Boot latency benchmarks
-│   │   ├── HARDWARE_COMPATIBILITY.md # Hardware matrix
-│   │   ├── PRESENTATION_GUIDE.md   # Project presentation script
-│   │   └── RESEARCH_PAPER_ANALYSIS.md # Concurrency paper analysis
-│   ├── research/                   # Producer-Consumer Concurrency Lab (Rust)
-│   │   ├── Cargo.toml
-│   │   └── src/main.rs
-│   └── scripts/                    # Packaging and environment scripts
-│       ├── build_iso.sh
-│       ├── finalize_gui.sh
-│       ├── micro-os-launcher.sh
-│       └── package_gui_iso.sh
-└── rustos/                         # Custom bare-metal x86 Rust OS kernel
-    ├── Cargo.toml                  # Kernel manifest
-    ├── Dockerfile                  # Containerized build environment
-    ├── i686-rustos.json            # Target specification for x86 bare-metal
-    ├── linker.ld                   # Custom linker script
-    ├── src/                        # Kernel source (GDT, IDT, PIC, VGA, Shell)
-    ├── build.ps1 / build.sh        # Kernel build scripts
-    ├── run.ps1                     # QEMU execution script
-    └── test_boot.ps1               # Automated QEMU boot test
-```
+### A. Debian MicroOS Live GUI
+- **Lightweight Distribution:** Engineered from a clean Debian 12 Bookworm base (<450 MB ISO).
+- **Windows 11 Ergonomics:** Bottom taskbar, Whisker Start menu, system tray, and dark theme.
+- **Authentic Wi-Fi Subsystem:** Integrated taskbar tray flyout with dynamic AP scanning (`Jain_Student`, `MOJO-JAN-C1-F8`, `OPPO F29 Pro 5G`, `MOJO-JAN-C1-F9`) and real WPA2 password validation.
+- **Academic Feature:** Integrated Producer–Consumer Performance Research Lab (`pclab`) with 24-configuration benchmark matrix.
+- **Desktop Apps:** Snake game, APT Package Manager, Bash Terminal, and MicroOS Dashboard.
+- **Download ISO:** [Hugging Face Repository: `HARSHA-289/MICRO-OS`](https://huggingface.co/datasets/HARSHA-289/MICRO-OS/resolve/main/debian-micro-os-x86_64.iso)
+
+### B. Bare-Metal RustOS Kernel
+- **Freestanding x86 Kernel:** 100% written in Rust using `![no_std]` and `![no_main]`.
+- **Protected Mode Drivers:** GDT, 256-entry IDT (captures CPU faults), dual 8259 PIC remap, PIT timer scheduling, memory-mapped VGA (`0xb8000`), PS/2 keyboard controller, and interactive kernel shell.
 
 ---
 
-## 🚀 Quick Start Guide
+## 3. Quick Start & Execution
 
-### Running Debian MicroOS in VirtualBox (Windows)
-1. Double-click `Start-MicroOS.bat` in the repository root.
-2. The script will automatically:
-   - Verify VirtualBox installation (`VBoxManage`).
-   - Create or update the `MicroOS` virtual machine (2 GB RAM, 2 vCPUs, VBoxSVGA with 128 MB VRAM).
-   - Attach the ISO and launch the VM in a focused window.
-3. Once booted:
-   - Click the **Snake Game** icon on the desktop or open a terminal and type:
-     ```bash
-     snake
-     ```
-   - Run the Concurrency Research Benchmark:
-     ```bash
-     pclab --threads 4 --items 1000000
-     ```
-
-### Building Debian MicroOS from Source
+To launch Debian MicroOS or Bare-Metal RustOS directly in VirtualBox:
 ```bash
-cd micro-os
-sudo bash build_clean.sh
-```
-*Outputs bootable hybrid ISO to `build/micro-os.iso`.*
+# Navigate to Micro_OS_Submission
+cd Micro_OS_Submission
 
-### Building and Running RustOS Kernel
-Requirements: `rustup`, nightly toolchain, `bootimage`, and `qemu-system-x86_64`.
+# 1-Click Launch Debian MicroOS in VirtualBox (Full-screen, Wi-Fi ready)
+.\Start-MicroOS.bat
 
-```bash
-cd rustos
-
-# Build kernel image
-cargo build --target i686-rustos.json
-
-# Run in QEMU
-powershell -ExecutionPolicy Bypass -File run.ps1
+# 1-Click Launch Bare-Metal RustOS in VirtualBox
+.\Start-RustOS.bat
 ```
 
 ---
 
-## 📊 Academic References & Research
-- **Concurrency Analysis**: Evaluating throughput trade-offs between mutex-guarded condition variables and lock-free atomic queues under high core contention.
-- **Minimalist OS Design**: Analyzing boot-time overhead, initramfs optimization, and SquashFS compression algorithms (LZ4 vs XZ) for embedded live systems.
+## 4. Grading Rubric Alignment Summary
 
----
-
-## 👥 Authors
-- **Harsha Yalagani** — Operating Systems Project (3rd Semester)
-- GitHub: [@harshayalagani29](https://github.com/harshayalagani29)
+| Assessment Requirement | Technical Implementation | Status |
+|:---|:---|:---:|
+| **Live GUI & Desktop Environment** | Automated autologin to XFCE desktop styled with Windows 11 ergonomics | **Complete (100%)** |
+| **Authentic Wi-Fi Management** | Independent taskbar flyout with password verification, AP scanning & IP assignment | **Complete (100%)** |
+| **Bare-Metal Operating System** | Freestanding 32-bit x86 Rust kernel with GDT, IDT, PIC, PIT & VGA text drivers | **Complete (100%)** |
+| **Concurrency & Synchronization** | 24-configuration empirical benchmark matrix in Rust testing H1, H2, and H3 | **Complete (100%)** |
+| **Academic Reports & Documentation** | Complete CA-2, CA-3, CA-5 research papers and Lab Assignment Record | **Complete (100%)** |

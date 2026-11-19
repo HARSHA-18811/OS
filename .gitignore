@@ -1,7 +1,6 @@
 # Operating Systems Project .gitignore
 # Exclude heavy OS images and virtual disk formats (>100MB)
 *.iso
-!rustos/iso/rustos.iso
 *.bin
 *.vdi
 *.vmdk
@@ -18,6 +17,11 @@ build/
 **/target/
 **/build/
 
+# Ignore legacy root folders (consolidated into Micro_OS_Submission)
+/micro-os/
+/rustos/
+/docs/
+
 # Rust compilation artifacts
 .cargo-lock
 CACHEDIR.TAG
@@ -26,3 +30,4 @@ CACHEDIR.TAG
 .DS_Store
 Thumbs.db
 desktop.ini
+

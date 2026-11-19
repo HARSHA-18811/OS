@@ -56,7 +56,7 @@ if (-not $vmExists) {
 }
 
 Write-Host "Configuring Virtual Machine settings..." -ForegroundColor Cyan
-& $vboxManage modifyvm RustOS --memory 128 --boot1 dvd --firmware bios
+& $vboxManage modifyvm RustOS --memory 128 --boot1 dvd --boot2 disk --boot3 none --boot4 none --nicbootprio1 0 --nictype1 82540EM --firmware bios
 
 # Clear serial log if exists
 if (Test-Path $serialLog) {
