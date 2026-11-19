@@ -12,19 +12,19 @@
 
 > [!NOTE]  
 > **Direct Browser Viewing (No Download Required):**  
-> GitHub automatically renders all **PDF** documents directly in your web browser. Click any document below to view the full report including all diagrams, graphs, charts, and tables immediately on GitHub.
+> GitHub automatically renders all **PDF** documents directly in your web browser. Click any **[View Online (PDF)]** link below to read the complete report including all diagrams, graphs, charts, and tables immediately on GitHub.
 
-| Assessment Component | Document Link (Click to Read Online on GitHub) | Embedded Content | Description & Scope |
-|:---|:---:|:---:|:---|
-| 📁 **CA-6 MicroOS Submission** | [📁 **`Micro_OS_Submission/`**](./Micro_OS_Submission) | Source, Scripts & Docs | Minimal bootable Debian MicroOS Live GUI (Windows 11 UI, authentic Wi-Fi management with password authentication, Snake arcade) & Bare-Metal RustOS Kernel. |
-| **CA-2 Investigation** | [📖 **`CA2.pdf`**](./CA2.pdf) | Complete PDF (5 Graphs & Charts) | *How Buffer Size, Thread Ratios, and the Linear Scaling Fallacy Influence Producer–Consumer Performance* (Rust prototype, 24 configurations). |
-| **CA-3 Debugging Challenge** | [📖 **`CA3.pdf`**](./CA3.pdf) | Complete PDF (4 Concurrency Charts) | *OS Design & Debugging Challenge: Bounded Producer–Consumer Synchronization, Concurrency Defect Diagnosis & Buffer Scaling*. |
-| **CA-5 Systems Engineering** | [📖 **`CA5.pdf`**](./CA5.pdf) | Complete PDF (11 Systems Engineering Graphs) | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
-| **Research Paper Proposal** | [📖 **`25BTRCL289_Harsha_Vardhan_Research.pdf`**](./25BTRCL289_Harsha_Vardhan_Research.pdf) | Complete PDF (4 Figures) | Problem Identification, Literature Discovery, and Formal Research Formulation. |
-| **Lab Record Portfolio** | [📖 **`Operating_Systems_Lab_Assignment_Harsha.pdf`**](./Operating_Systems_Lab_Assignment_Harsha.pdf) | Complete PDF (145 Screenshots & Code) | Comprehensive Laboratory Record: Linux system programming, concurrency models, and architecture simulations. |
-| **OS Project Report** | [📖 **`Operating_Systems_Project_Report.pdf`**](./Operating_Systems_Project_Report.pdf) | Complete PDF Report | Academic Project Report covering Debian MicroOS Live GUI, Bare-Metal RustOS Kernel, and Concurrency Lab. |
+| Assessment Component | Read Online (PDF) | Word File (.docx) | Embedded Content | Description & Scope |
+|:---|:---:|:---:|:---:|:---|
+| 📁 **CA-6 MicroOS Submission** | — | — | Source, Scripts & Docs | [📁 **`Micro_OS_Submission/`**](./Micro_OS_Submission): Minimal bootable Debian MicroOS Live GUI & Bare-Metal RustOS Kernel. |
+| **CA-2 Investigation** | [📖 **`CA2.pdf`**](./CA2.pdf) | [💾 `CA2.docx`](./CA2.docx) | 5 Graphs & Charts | *How Buffer Size, Thread Ratios, and the Linear Scaling Fallacy Influence Producer–Consumer Performance* (Rust prototype, 24 configurations). |
+| **CA-3 Debugging Challenge** | [📖 **`CA3.pdf`**](./CA3.pdf) | [💾 `CA3.docx`](./Micro_OS_Submission/docs/word_documents/CA3.docx) | 4 Concurrency Charts | *OS Design & Debugging Challenge: Bounded Producer–Consumer Synchronization, Concurrency Defect Diagnosis & Buffer Scaling*. |
+| **CA-5 Systems Engineering** | [📖 **`CA5.pdf`**](./CA5.pdf) | [💾 `CA5.docx`](./Micro_OS_Submission/docs/word_documents/CA5.docx) | 11 Systems Graphs | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
+| **Research Paper Proposal** | [📖 **`Research.pdf`**](./25BTRCL289_Harsha_Vardhan_Research.pdf) | [💾 `Research.docx`](./Micro_OS_Submission/docs/word_documents/25BTRCL289_Harsha_Vardhan_Research.docx) | 4 Figures | Problem Identification, Literature Discovery, and Formal Research Formulation. |
+| **Lab Record Portfolio** | [📖 **`Lab_Assignment.pdf`**](./Operating_Systems_Lab_Assignment_Harsha.pdf) | [💾 `Lab_Assignment.docx`](./Operating_Systems_Lab_Assignment_Harsha.docx) | 145 Screenshots & Code | Comprehensive Laboratory Record: 20 chapters of Linux system programming, concurrency models, and architecture simulations. |
+| **OS Project Report** | [📖 **`Project_Report.pdf`**](./Operating_Systems_Project_Report.pdf) | [💾 `Report.docx`](./Micro_OS_Submission/docs/word_documents/Operating_Systems_Project_Report.docx) | Complete Report | Academic Project Report covering Debian MicroOS Live GUI, Bare-Metal RustOS Kernel, and Concurrency Lab. |
 
-*(Note: Original editable Microsoft Word `.docx` source files are preserved inside [`Micro_OS_Submission/docs/word_documents/`](./Micro_OS_Submission/docs/word_documents).)*
+*(Note: Original editable Microsoft Word `.docx` source files are also preserved inside [`Micro_OS_Submission/docs/word_documents/`](./Micro_OS_Submission/docs/word_documents).)*
 
 ---
 
