@@ -18,7 +18,7 @@
 | [📄 **`final_CA5_Producer_Consumer_Linux_Systems_Engineering_Final.docx`**](./final_CA5_Producer_Consumer_Linux_Systems_Engineering_Final.docx) | **CA-5 Systems Engineering** | *Investigating the Impact of Bounded Buffer Sizing and Thread Allocation Ratios on Concurrent Producer–Consumer Throughput: A Linux Systems Engineering Empirical Study*. |
 | [📄 **`25BTRCL289_Harsha_Vardhan_Research.docx`**](./25BTRCL289_Harsha_Vardhan_Research.docx) | **Research Proposal** | Problem Identification, Literature Discovery, and Formal Research Formulation. |
 | [📄 **`Operating_Systems_Lab_Assignment_Harsha.docx`**](./Operating_Systems_Lab_Assignment_Harsha.docx) | **Lab Record Portfolio** | Laboratory Record: Comprehensive Linux system programming, concurrency models, and architecture simulations. |
-| [📄 **`Operating_Systems_Project_Report.pdf`**](./Operating_Systems_Project_Report.pdf) | **Academic Project Report** | Published-style 4-page formal project and research report covering system architecture, kernel implementation, and experimental benchmarks. |
+| [📄 **`Operating_Systems_Project_Report.docx`**](./Operating_Systems_Project_Report.docx) | **Project Report** | Academic Project Report covering Debian MicroOS Live GUI, Bare-Metal RustOS Kernel, and Concurrency Lab (also available as [PDF inside `Micro_OS_Submission/`](./Micro_OS_Submission/Operating_Systems_Project_Report.pdf)). |
 
 ---
 
