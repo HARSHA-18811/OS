@@ -1,0 +1,61 @@
+#!/bin/bash
+# MicroOS Network Isolation & Control System
+ACTION="$1"
+
+case "$ACTION" in
+    init|block|disconnect)
+        echo "[MicroOS] Isolating network (Offline mode)..."
+        echo "Disconnected" > /home/user/.active_wifi
+        chown user:user /home/user/.active_wifi 2>/dev/null || true
+        
+        # Flush existing OUTPUT rules
+        iptables -F OUTPUT 2>/dev/null || true
+        iptables -P OUTPUT ACCEPT 2>/dev/null || true
+        
+        # Allow loopback (local desktop IPC / X11)
+        iptables -A OUTPUT -o lo -j ACCEPT
+        
+        # Block outgoing HTTP, HTTPS, ICMP, and common web ports
+        iptables -A OUTPUT -p tcp --dport 80 -j REJECT --reject-with icmp-port-unreachable
+        iptables -A OUTPUT -p tcp --dport 443 -j REJECT --reject-with icmp-port-unreachable
+        iptables -A OUTPUT -p tcp --dport 8080 -j REJECT --reject-with icmp-port-unreachable
+        iptables -A OUTPUT -p icmp -j REJECT --reject-with icmp-port-unreachable
+        
+        # In VirtualBox, also take down emulated ethernet link
+        ip link set eth0 down 2>/dev/null || true
+        ip link set enp0s3 down 2>/dev/null || true
+        echo "[MicroOS] Network is now DISCONNECTED and ISOLATED."
+        ;;
+        
+    connect|unblock)
+        echo "[MicroOS] Enabling network traffic (Online mode)..."
+        # Clear iptables restrictions
+        iptables -F OUTPUT 2>/dev/null || true
+        iptables -P OUTPUT ACCEPT 2>/dev/null || true
+        
+        # Enable networking in NetworkManager
+        nmcli networking on 2>/dev/null || true
+        
+        # Bring interfaces up
+        ip link set eth0 up 2>/dev/null || true
+        ip link set enp0s3 up 2>/dev/null || true
+        
+        # Renew DHCP
+        dhclient -r 2>/dev/null || true
+        dhclient 2>/dev/null || true
+        echo "[MicroOS] Network traffic is now ACTIVE."
+        ;;
+        
+    status)
+        if iptables -L OUTPUT -n 2>/dev/null | grep -q 'REJECT'; then
+            echo "DISCONNECTED"
+        else
+            echo "CONNECTED"
+        fi
+        ;;
+        
+    *)
+        echo "Usage: micro-network-isolate {init|block|disconnect|connect|unblock|status}"
+        exit 1
+        ;;
+esac
