@@ -19,10 +19,16 @@ for /f "tokens=1,2 delims=:" %%a in ('netsh wlan show interfaces') do (
     )
 )
 echo [*] Active Laptop Wi-Fi: !CURRENT_WIFI!
-echo [*] Launching MicroOS in VirtualBox...
+echo [*] Launching MicroOS Window...
 echo.
 
 cd /d "D:\VirtualBox"
+VBoxManage.exe discardstate "MicroOS" >nul 2>&1
 VBoxManage.exe modifyvm "MicroOS" --boot1 dvd --boot2 disk --boot3 none --boot4 none --nicbootprio1 0 --nictype1 82540EM >nul 2>&1
 VBoxManage.exe storagectl "MicroOS" --name "SATA" --portcount 2 --hostiocache on >nul 2>&1
+VBoxManage.exe setextradata "MicroOS" "GUI/Fullscreen" >nul 2>&1
+VBoxManage.exe setextradata "MicroOS" "GUI/AutoresizeGuest" "true" >nul 2>&1
+VBoxManage.exe setextradata "MicroOS" "GUI/LastGuestSizeHint" "1024,768" >nul 2>&1
+
+:: Start interactive VM GUI window
 start "" "VirtualBoxVM.exe" --startvm "MicroOS"
