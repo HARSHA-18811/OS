@@ -23,12 +23,6 @@ echo [*] Launching MicroOS in VirtualBox...
 echo.
 
 cd /d "D:\VirtualBox"
-VBoxManage.exe discardstate "MicroOS" >nul 2>&1
 VBoxManage.exe modifyvm "MicroOS" --boot1 dvd --boot2 disk --boot3 none --boot4 none --nicbootprio1 0 --nictype1 82540EM >nul 2>&1
 VBoxManage.exe storagectl "MicroOS" --name "SATA" --portcount 2 --hostiocache on >nul 2>&1
-VBoxManage.exe setextradata "MicroOS" "GUI/Fullscreen" "true" >nul 2>&1
-VBoxManage.exe setextradata "MicroOS" "GUI/AutoresizeGuest" "true" >nul 2>&1
-VBoxManage.exe setextradata "MicroOS" "GUI/LastGuestSizeHint" "1536,864" >nul 2>&1
-VBoxManage.exe setextradata "MicroOS" "CustomVideoMode1" "1536x864x32" >nul 2>&1
-VBoxManage.exe setextradata "MicroOS" "CustomVideoMode2" "1920x1080x32" >nul 2>&1
-start "" "VirtualBoxVM.exe" --startvm "MicroOS" --fullscreen
+start "" "VirtualBoxVM.exe" --startvm "MicroOS"
