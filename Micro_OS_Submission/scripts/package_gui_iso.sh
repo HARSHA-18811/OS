@@ -72,18 +72,19 @@ Terminal=false
 StartupNotify=true
 EOF
 
-# Shortcut 4: WiFi & Network Settings
+# Shortcut 4: Wi-Fi Settings & Networks
 cat << 'EOF' > "$CHROOT/home/user/Desktop/network.desktop"
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=WiFi & Network Settings
-Comment=Connect to WiFi or configure Ethernet
-Exec=xfce4-terminal --title="Network Configuration" -e "nmtui"
+Name=Wi-Fi Settings
+Comment=Connect to Wi-Fi networks and view available hotspots
+Exec=/usr/local/bin/micro-wifi --window
 Icon=network-wireless
 Path=/home/user
 Terminal=false
 StartupNotify=true
+Categories=Network;Settings;
 EOF
 
 # Shortcut 5: APT Package Manager

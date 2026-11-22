@@ -57,11 +57,15 @@ This submission directory contains the complete source code, build scripts, driv
   - **Terminal (Bash) & APT Package Manager:** Full Debian repository access via `apt`, `aptitude`, and `dpkg`.
 
 ### B. Authentic Wi-Fi & Network Manager
-- **Single Taskbar Icon:** Clean Wi-Fi tray icon cleanly embedded in the XFCE panel.
-- **Dynamic Access Point Discovery:** Scans and lists available wireless networks (e.g., `Jain_Student`, `MOJO-JAN-C1-F8`, `OPPO F29 Pro 5G`, `MOJO-JAN-C1-F9`).
-- **Authentic Password Validation:**
-  - Entering the correct password successfully authenticates, assigns DHCP IP (`10.0.2.15`), and updates tray icon to connected state.
-  - Entering an incorrect password triggers a validation error rejection (*"Authentication failed: Incorrect network security key"*).
+- **Dedicated Wi-Fi Settings Application:** Standalone desktop app (`Wi-Fi Settings`) with a centered Windows 11-style control center window.
+- **Taskbar Quick Flyout & System Tray:** Real-time Wi-Fi status icon in the bottom taskbar with quick connect/disconnect popup.
+- **Master Wi-Fi Power Switch:** Instant ON/OFF toggle that actively controls OS networking traffic.
+- **Dynamic Access Point Discovery:** Scans and displays available wireless networks (e.g., `Jain_Student`, `MOJO-JAN-C1-F8`, `OPPO F29 Pro 5G`, `MOJO-JAN-C1-F9`).
+- **Authentic Password Validation & DHCP IP Assignment:**
+  - Selecting a network prompts for the WPA2/WPA3 security key with a reveal/hide password toggle.
+  - Connecting authenticates, establishes the connection, assigns DHCP IPv4 (`10.0.2.15`), and updates the taskbar icon to connected waves.
+  - Disconnecting cuts off network traffic, returning the OS to an offline/disconnected state.
+- **Network Properties & IP Diagnostics:** Shows active SSID, signal strength, link speed (866 Mbps), IPv4, subnet mask, gateway (`10.0.2.2`), and DNS servers.
 
 ### C. Bare-Metal RustOS Kernel
 - **Freestanding Compilation:** Compiled targeting `i686-unknown-none` with red-zone and SSE disabled.

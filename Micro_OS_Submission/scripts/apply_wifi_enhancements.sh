@@ -121,13 +121,14 @@ cat << 'EOF' > "$CHROOT/home/user/Desktop/network.desktop"
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=WiFi & Network Settings
+Name=Wi-Fi Settings
 Comment=Connect to Wi-Fi networks and view available hotspots
-Exec=/usr/local/bin/micro-wifi --show
+Exec=/usr/local/bin/micro-wifi --window
 Icon=network-wireless
 Path=/home/user
 Terminal=false
 StartupNotify=true
+Categories=Network;Settings;
 EOF
 chmod 755 "$CHROOT/home/user/Desktop/network.desktop"
 cp -f "$CHROOT/home/user/Desktop/network.desktop" "$CHROOT/etc/skel/Desktop/network.desktop"
