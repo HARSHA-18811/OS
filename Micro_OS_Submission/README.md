@@ -28,7 +28,8 @@ This submission directory contains the complete source code, build scripts, driv
         | - Authentic Wi-Fi Tray & Manager  |                 | - Dual 8259 PIC + PIT Timer       |
         | - Producer-Consumer Research Lab  |                 | - Memory-Mapped VGA Video (0xb8000|
         | - Retro Arcade Snake Desktop App  |                 | - PS/2 Keyboard Driver & Shell    |
-        | - 1-Click Launch: Start-MicroOS   |                 | - 1-Click Launch: Start-RustOS    |
+        | - Default Web Browser (Firefox)   |                 | - 1-Click Launch: Start-RustOS    |
+        | - 1-Click Launch: Start-MicroOS   |                 |                                   |
         +-----------------------------------+                 +-----------------------------------+
 ```
 
@@ -38,7 +39,8 @@ This submission directory contains the complete source code, build scripts, driv
 
 | Artifact Name | Platform Architecture | Direct Download Link |
 |:---|:---|:---|
-| **`debian-micro-os-x86_64.iso`** (~420 MB) | Debian 12 Live GUI (VirtualBox & Physical Laptop USB) | [![Download on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Download%20ISO-blue)](https://huggingface.co/datasets/HARSHA-289/MICRO-OS/resolve/main/debian-micro-os-x86_64.iso) |
+| **`micro-os.iso`** (~557 MB) | Debian 12 Live GUI (VirtualBox & Physical Laptop USB) | [![Download on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Download%20ISO-blue)](https://huggingface.co/datasets/HARSHA-289/MICRO-OS/resolve/main/micro-os.iso) |
+| **`debian-micro-os-x86_64.iso`** (~557 MB) | Debian 12 Live GUI Mirror Link | [![Download on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Direct%20Link-blue)](https://huggingface.co/datasets/HARSHA-289/MICRO-OS/resolve/main/debian-micro-os-x86_64.iso) |
 | **`rustos.iso`** (~15 MB) | Bare-Metal x86 Kernel (Multiboot) | [Download Mirror](https://drive.google.com/file/d/12ML_ZVn8thM8TBMi7EPKr-XWNeuxVwT9/view?usp=sharing) |
 
 ---
@@ -49,23 +51,25 @@ This submission directory contains the complete source code, build scripts, driv
 - **Bottom Taskbar & Whisker Start Menu:** Pre-configured with quick launcher icons, system monitor tray, and clock.
 - **Autologin:** Passwordless boot straight to desktop as non-root user `user` with `sudo` privileges.
 - **Desktop Apps:**
-  - **Wi-Fi & Network Settings:** Interactive flyout supporting live AP discovery and authentic WPA2 password validation.
-  - **Producer-Consumer Research Lab:** Native multi-threaded Rust benchmark testbed evaluating lock contention and buffer capacities.
+  - **Default Web Browser (Firefox ESR):** Pre-configured modern web browser with desktop launcher and system-wide default MIME associations (starts offline until Wi-Fi is connected).
+  - **Wi-Fi & Network Settings:** Interactive flyout and settings control center supporting live AP discovery and strict WPA2/WPA3 password validation.
+  - **Producer-Consumer Research Lab:** Native multi-threaded Rust benchmark testbed evaluating lock contention and buffer capacities (`pclab`).
   - **Retro Arcade Snake Game:** Clean graphical arcade application running natively on the desktop.
   - **Micro OS Dashboard:** One-click system monitor showing memory, CPU load, and disk metrics.
-  - **Default Web Browser (Firefox ESR):** Pre-configured modern web browser with desktop launcher and system-wide default MIME associations.
   - **Terminal (Bash) & APT Package Manager:** Full Debian repository access via `apt`, `aptitude`, and `dpkg`.
 
 ### B. Authentic Wi-Fi & Network Manager
+- **Independent Network Isolation:** The operating system boots completely disconnected and isolated by default (blocking WAN outgoing traffic) until the user enters their Wi-Fi security key.
 - **Dedicated Wi-Fi Settings Application:** Standalone desktop app (`Wi-Fi Settings`) with a centered Windows 11-style control center window.
 - **Taskbar Quick Flyout & System Tray:** Real-time Wi-Fi status icon in the bottom taskbar with quick connect/disconnect popup.
 - **Master Wi-Fi Power Switch:** Instant ON/OFF toggle that actively controls OS networking traffic.
-- **Dynamic Access Point Discovery:** Scans and displays available wireless networks (e.g., `Jain_Student`, `MOJO-JAN-C1-F8`, `OPPO F29 Pro 5G`, `MOJO-JAN-C1-F9`).
+- **Nearby Access Point Discovery:** Pre-seeded with real nearby access points (`MOJO-JAN-C1-F8`, `MOJO-JAN-C1-F9`, `Harsha`, `OPPO F29 Pro 5G 232d`, `BHYRAVA.PG.3RD.FLOOR`, `Jain_Student`, `YAGNESH`, etc.) plus live dynamic `nmcli` scanning when booted on physical laptops.
 - **Authentic Password Validation & DHCP IP Assignment:**
   - Selecting a network prompts for the WPA2/WPA3 security key with a reveal/hide password toggle.
-  - Connecting authenticates, establishes the connection, assigns DHCP IPv4 (`10.0.2.15`), and updates the taskbar icon to connected waves.
+  - Entering an incorrect password flags the field with a red border and displays: *"The network security key isn't correct. Please try again."*
+  - Entering a valid password authenticates, establishes the connection, unblocks internet traffic, assigns DHCP IPv4 (`10.0.2.15`), and updates the taskbar icon to connected waves.
   - Disconnecting cuts off network traffic, returning the OS to an offline/disconnected state.
-- **Network Properties & IP Diagnostics:** Shows active SSID, signal strength, link speed (866 Mbps), IPv4, subnet mask, gateway (`10.0.2.2`), and DNS servers.
+- **Physical USB Live Booting Support:** Pre-installed non-free wireless firmware (`firmware-iwlwifi`, `firmware-realtek`, `firmware-atheros`) inside kernel initramfs for physical laptops.
 
 ### C. Bare-Metal RustOS Kernel
 - **Freestanding Compilation:** Compiled targeting `i686-unknown-none` with red-zone and SSE disabled.
@@ -77,11 +81,11 @@ This submission directory contains the complete source code, build scripts, driv
 ## 4. One-Click Quick Start (Windows & VirtualBox)
 
 ### Launch Debian MicroOS:
-Double-click `Start-MicroOS.bat` or run in PowerShell:
+Double-click `Start-MicroOS.bat` (or use Desktop shortcut **`Start MicroOS`**):
 ```powershell
 .\Start-MicroOS.bat
 ```
-*Configures VirtualBox with Intel PRO/1000 MT Desktop NIC, AHCI SATA controller (portcount 2 with host I/O cache enabled), 2048 MB RAM, and boots directly to the graphical desktop in full-screen mode.*
+*Configures VirtualBox with Intel PRO/1000 MT Desktop NIC, AHCI SATA controller (portcount 2 with host I/O cache enabled), 2048 MB RAM, and pops up the interactive GUI desktop window immediately.*
 
 ### Launch Bare-Metal RustOS:
 Double-click `Start-RustOS.bat` or run in PowerShell:
@@ -90,14 +94,20 @@ Double-click `Start-RustOS.bat` or run in PowerShell:
 ```
 *Boots the 15 MB freestanding bare-metal Rust kernel in VirtualBox, presenting the interactive kernel shell.*
 
+### Live USB Booting on Physical Laptop:
+1. Download **`micro-os.iso`** from the Hugging Face link above.
+2. Use **Rufus** or **Ventoy** to flash the ISO to a USB flash drive.
+3. Reboot your laptop, enter the BIOS/Boot Menu (F12, F9, or Esc), and select the USB drive.
+
 ---
 
 ## 5. Directory Structure
 ```
 Micro_OS_Submission/
-├── build/                      # Build artifacts and intermediate files
+├── build/                      # Bootable live ISO artifact (micro-os.iso, 557 MB)
 ├── docs/
-│   ├── screenshots/            # Verification screenshots (win_gui_final, snake_desktop_verified)
+│   ├── screenshots/            # Verification screenshots
+│   ├── word_documents/         # Editable Word documents (CA2, CA3, CA5, Lab, Project)
 │   ├── PRESENTATION_GUIDE.md   # Faculty demonstration walkthrough
 │   ├── BOOT_TIMES.md           # Component-by-component boot benchmark
 │   └── HARDWARE_COMPATIBILITY.md
@@ -113,6 +123,7 @@ Micro_OS_Submission/
 ├── scripts/
 │   ├── apply_wifi_enhancements.sh
 │   ├── micro-wifi.py           # Authentic Wi-Fi flyout GUI application
+│   ├── package_gui_iso.sh      # Desktop packaging script
 │   └── rebuild_iso.sh          # ISO remastering script
 ├── build.ps1                   # PowerShell build automation
 ├── build_clean.sh              # Debian live-build wrapper
