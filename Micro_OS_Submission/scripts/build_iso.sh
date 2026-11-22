@@ -97,6 +97,10 @@ apt-get install -y \
     aptitude \
     snapd
 
+echo "--- Installing Default Web Browser (Firefox ESR) ---"
+apt-get install -y --no-install-recommends \
+    firefox-esr
+
 echo "--- Installing Essential Utilities & Diagnostics ---"
 apt-get install -y --no-install-recommends \
     sudo \

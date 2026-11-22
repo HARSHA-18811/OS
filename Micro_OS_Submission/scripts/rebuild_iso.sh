@@ -6,6 +6,7 @@ CHROOT="$WORKDIR/chroot"
 ISODIR="$WORKDIR/iso"
 LOCAL_ISO="$WORKDIR/micro-os.iso"
 FINAL_ISO_1="/mnt/d/OS/micro-os/build/micro-os.iso"
+FINAL_ISO_2="/mnt/d/mydata/Documents/3rd sem/os/OS/Micro_OS_Submission/build/micro-os.iso"
 
 echo "=== [1/4] Cleaning Package Cache in Chroot ==="
 chroot "$CHROOT" bash -c '
@@ -35,6 +36,9 @@ grub-mkrescue -o "$LOCAL_ISO" "$ISODIR"
 echo "=== Syncing New ISO to Windows Drive ==="
 cp -f "$LOCAL_ISO" "$FINAL_ISO_1"
 chmod 666 "$FINAL_ISO_1"
+mkdir -p "$(dirname "$FINAL_ISO_2")"
+cp -f "$LOCAL_ISO" "$FINAL_ISO_2"
+chmod 666 "$FINAL_ISO_2"
 sync
 
 SIZE1=$(du -h "$FINAL_ISO_1" | cut -f1)

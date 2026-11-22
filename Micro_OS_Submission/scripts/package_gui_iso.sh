@@ -128,6 +128,21 @@ Terminal=false
 StartupNotify=true
 EOF
 
+# Shortcut 8: Web Browser (Firefox ESR)
+cat << 'EOF' > "$CHROOT/home/user/Desktop/browser.desktop"
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Web Browser
+Comment=Browse the World Wide Web (Firefox ESR)
+Exec=firefox-esr %u
+Icon=firefox-esr
+Path=/home/user
+Terminal=false
+StartupNotify=true
+Categories=Network;WebBrowser;
+EOF
+
 chmod +x "$CHROOT/home/user/Desktop/"*.desktop
 chown -R 1000:1000 "$CHROOT/home/user"
 

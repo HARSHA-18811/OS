@@ -53,6 +53,7 @@ This submission directory contains the complete source code, build scripts, driv
   - **Producer-Consumer Research Lab:** Native multi-threaded Rust benchmark testbed evaluating lock contention and buffer capacities.
   - **Retro Arcade Snake Game:** Clean graphical arcade application running natively on the desktop.
   - **Micro OS Dashboard:** One-click system monitor showing memory, CPU load, and disk metrics.
+  - **Default Web Browser (Firefox ESR):** Pre-configured modern web browser with desktop launcher and system-wide default MIME associations.
   - **Terminal (Bash) & APT Package Manager:** Full Debian repository access via `apt`, `aptitude`, and `dpkg`.
 
 ### B. Authentic Wi-Fi & Network Manager
